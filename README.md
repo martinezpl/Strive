@@ -16,4 +16,14 @@ Sorting the list takes *nlogn*, so I can take advantage of it:
 
 Overall complexity is now *nlogn + n - 1*
 
-### Day 2
+### Day 2 - 5
+
+Overall programming basics I already know.
+
+### Day 6
+
+NumPy!! 
+
+### Day 7
+
+Pandas!!
