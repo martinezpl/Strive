@@ -22,12 +22,13 @@ def detect_face_eyes(image, face_classifier, eye_classifier):
 
 if __name__ == "__main__":
     cap = cv2.VideoCapture(0)
-    
-    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH) + 0.5)
-    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT) + 0.5)
-    size = (width, height)
-    fourcc = cv2.VideoWriter_fourcc(*'XVID')
-    out = cv2.VideoWriter('test.avi', fourcc, 20.0, size)
+
+    # FOR RECORDING
+    #width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH) + 0.5)
+    #height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT) + 0.5)
+    #size = (width, height)
+    #fourcc = cv2.VideoWriter_fourcc(*'XVID')
+    #out = cv2.VideoWriter('test.avi', fourcc, 20.0, size)
 
     cv2.namedWindow('preview')
     cv2.moveWindow("preview", 2000, 100)
@@ -35,7 +36,8 @@ if __name__ == "__main__":
     face_classifier = cv2.CascadeClassifier('Haarcascades/haarcascade_frontalface_default.xml')
     eye_classifier = cv2.CascadeClassifier('Haarcascades/haarcascade_eye.xml')
 
-    if cap.isOpened():  # try to get the first frame
+    # try to get the first frame
+    if cap.isOpened(): 
         rval, frame = cap.read()
     else:
         rval = False
@@ -44,12 +46,11 @@ if __name__ == "__main__":
         frame_f = detect_face_eyes(frame, face_classifier, eye_classifier)
         cv2.imshow("preview", frame_f)
         rval, frame = cap.read()
-        out.write(frame_f)
+        #out.write(frame_f)
         key = cv2.waitKey(20)
         if key == 27:  # exit on ESC
             break
 
     cap.release()
-    out.release()
+    #out.release()
     cv2.destroyWindow("preview")
-
