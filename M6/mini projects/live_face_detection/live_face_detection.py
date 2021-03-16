@@ -10,8 +10,9 @@ def detect_face_eyes(image, face_classifier, eye_classifier):
     # Using the classifiers detect all faces on the image
     faces = face_classifier.detectMultiScale(img_gray, minNeighbors = 7)
 
-    # Otherwise draw a rectangle on each face that has been detected
+    # Draw a rectangle on each face that has been detected
     for (x,y,w,h) in faces:
+        # Crop face and detect eyes
         face = img_gray[y:y+h, x:x+w]
         eyes = eye_classifier.detectMultiScale(face, minNeighbors = 7)
         for (ex, ey, ew, eh) in eyes:
