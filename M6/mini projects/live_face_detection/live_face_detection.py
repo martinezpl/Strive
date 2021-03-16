@@ -31,7 +31,7 @@ if __name__ == "__main__":
     #out = cv2.VideoWriter('test.avi', fourcc, 20.0, size)
 
     cv2.namedWindow('preview')
-    cv2.moveWindow("preview", 2000, 100)
+    #cv2.moveWindow("preview", 2000, 100)
 
     face_classifier = cv2.CascadeClassifier('Haarcascades/haarcascade_frontalface_default.xml')
     eye_classifier = cv2.CascadeClassifier('Haarcascades/haarcascade_eye.xml')
